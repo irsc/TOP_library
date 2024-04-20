@@ -5,8 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
+
+    <h2>My library</h2>
+    <button id="newBookBtn">Add New Book</button>
+
+    <dialog id="newBookModal">
+        <form id="newBookForm" action="">
+            <legend>
+                <h2>New book data</h2>
+            </legend>
+            <label for="title">Title:</label>
+            <input id="title" type="text" pattern="[A-zÀ-ú\s]{2,80}" required>
+            
+            <label for="author">Author:</label>
+            <input id="author" type="text" pattern="[A-zÀ-ú\s]{2,30}" required>
+            
+            <label for="pages">Number of pages:</label>
+            <input id="pages" type="tel" pattern="^[1-9]\d{1,5}$" required>
+
+            <p>Have you red this book?</p>
+            <input type="radio" name="read" id="readYes"><label for="readYes">Yes</label>
+            <input type="radio" name="read" id="readNo" checked><label for="readNo">No</label>
+            <button id="closeBtn">Cancel</button>
+            <button id="addBookBtn" type="submit">Add new book</button>
+
+        </form>
+
+    </dialog>
+
+    <div id="contenedor"></div>
 
     <script src="./library.js"></script>
     
