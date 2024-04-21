@@ -34,8 +34,11 @@ newBookPages.addEventListener("change", ()=>{
 }); */
 
 addBookBtn.addEventListener("click", ()=>{
-    addBookToLibrary(title, author, pages, read);
-});
+    if ( newBookTitle.checkValidity()& newBookAuthor.checkValidity() & newBookPages.checkValidity()){
+        addBookToLibrary(title, author, pages, read);
+        newBookModal.close();
+    }
+}); 
 closeBtn.addEventListener("click", ()=>{
     newBookModal.close();
 });

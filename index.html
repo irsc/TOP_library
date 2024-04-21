@@ -9,37 +9,51 @@
 
 </head>
 <body>
-
-    <h2>My library</h2>
-    <button id="newBookBtn">Add New Book</button>
-
-    <dialog id="newBookModal">
-        <form id="newBookForm" action="">
-            <legend>
-                <h2>New book data</h2>
-            </legend>
-            <label for="title">Title:</label>
-            <input id="title" type="text" pattern="[A-zÀ-ú\s]{2,80}" required>
-            
-            <label for="author">Author:</label>
-            <input id="author" type="text" pattern="[A-zÀ-ú\s]{2,30}" required>
-            
-            <label for="pages">Number of pages:</label>
-            <input id="pages" type="tel" pattern="^[1-9]\d{1,5}$" required>
-
-            <p>Have you red this book?</p>
-            <input type="radio" name="read" id="readYes"><label for="readYes">Yes</label>
-            <input type="radio" name="read" id="readNo" checked><label for="readNo">No</label>
-            <button id="closeBtn">Cancel</button>
-            <button id="addBookBtn" type="submit">Add new book</button>
-
-        </form>
-
-    </dialog>
-
-    <div id="contenedor"></div>
-
+    <header>
+        <h2>My library</h2>
+    </header>
+    <main>
+        
+        <button id="newBookBtn">Add New Book</button>
+    
+        <dialog id="newBookModal">
+            <form id="newBookForm" method="dialog">
+                <legend>
+                    <h2>New book data</h2>
+                </legend>
+                <label for="title">Title:</label>
+                <input id="title" type="text" pattern="[A-zÀ-ú\s]{2,80}" required>
+                
+                <label for="author">Author:</label>
+                <input id="author" type="text" pattern="[A-zÀ-ú\s]{2,30}" required>
+                
+                <label for="pages">Number of pages:</label>
+                <input id="pages" type="tel" pattern="^[1-9]\d{1,5}$" required>
+    
+                <p>Have you red this book?</p>
+                <input type="radio" name="read" id="readYes"><label for="readYes">Yes</label>
+                <input type="radio" name="read" id="readNo" checked><label for="readNo">No</label>
+                <button type="reset"  id="closeBtn">Cancel</button>
+                <button id="addBookBtn">Add new book</button>
+    
+            </form>
+    
+        </dialog>
+    
+        <div id="contenedor"></div>
+    </main>
+    <footer>
+        <span>
+            Copyright &copy; 2023 
+        </span> 
+        <a href="https://github.com/irsc/TOP_Calculator" target="_blank">
+            irsc <i class="fa fa-github"></i>
+        </a>
+    </footer>
     <script src="./library.js"></script>
+    <script src="https://kit.fontawesome.com/4c536a6bd5.js" crossorigin="anonymous"></script>
+
+    
     
 </body>
 </html>

@@ -5,6 +5,7 @@ button{
     padding: 5px 10px;;
     cursor: pointer;
 }
+
 body{
     background-color: rgba(206, 226, 238, 0.618)
 }
@@ -14,6 +15,24 @@ h2{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+a{
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+}
+.fa-github {
+    font-size: 18px;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+}
+
+
 /*Elements in main view*/
 #newBookBtn{
     background-color: #72ff47;
@@ -21,6 +40,10 @@ h2{
     padding: 10px 20px;
     margin: 20px;
     cursor: pointer;
+    transition: transform .2s ease-in-out;
+}
+#newBookBtn:hover {
+    transform: scale(1.1)
 }
 
 #contenedor{
@@ -54,6 +77,11 @@ form button{
 }
 input[type="radio"]{
     justify-self: right;
+}
+
+dialog button:hover{
+    background-color: lightslategrey;
+    color: whitesmoke;
 }
   
 /*Book cards*/
