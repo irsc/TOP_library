@@ -1,9 +1,5 @@
 //Variables
-const myLibrary = [
-    {title: "Corazón tinieblas", author:"J Conrad", pages:300, read:"Yes"},
-    {title: "Vagalume", author:"J Llamazares", pages:250, read:"Yes"},
-    {title: "Imperio", author:"J Gallego", pages:290, read: "No"}
-];
+const myLibrary = [];
 
 let author, title, pages, read;
 
@@ -43,16 +39,14 @@ function Book(title, author, pages, read="No") {
     this.author = author;
     this.pages = pages;
     this.read = read;
+}
 
- /*    this.info = function(){
-        let message = title + " by " + author + ", " + pages + " pages,";
-        if(read){
-            message = message + " already read."
-        }else{
-            message = message + " not read yet."
-        }
-        return message;
-    } */
+Book.prototype.readStatus = function(){
+    if(this.read == "No"){
+        this.read = "Yes";
+    }else if(this.read == "Yes"){
+        this.read = "No";
+    }
 }
 
 function addBookToLibrary(title, author, pages, read){
@@ -70,12 +64,27 @@ function printBookCards() {
         let card = document.createElement("div");
         card.classList.add("card");
         Object.entries(book).forEach(([key, value]) =>{
-            let titleH = document.createElement("h4");
-            let title = document.createElement("p");
-            titleH.innerText = key.toUpperCase() + ":";
-            title.innerText = value;
-            card.appendChild(titleH);
-            card.appendChild(title);        
+            let infoH = document.createElement("h4");
+            let info = document.createElement("p");
+            infoH.innerText = key.toUpperCase() + ":";
+            if(key == "read"){
+                info.classList.add("toggle-container");
+                let inputToggle = document.createElement("input");
+                inputToggle.setAttribute("type","checkbox");
+                let sliderRound = document.createElement("div");
+                sliderRound.classList.add("slider");
+                sliderRound.classList.add("round");
+                info.appendChild(inputToggle);
+                info.appendChild(sliderRound);
+                if(value=="Yes") inputToggle.checked=true;
+                inputToggle.addEventListener("click", ()=>{
+                    book.readStatus();
+                });
+            }else{
+                info.innerText = value;
+            } 
+            card.appendChild(infoH);
+            card.appendChild(info);        
         }); 
 
         let btnRemove = document.createElement("button");
@@ -101,5 +110,14 @@ function resetVariables(){
     newBookPages.value ="";
     notRead.checked = true;
 }
+
+//Initial books
+
+book1 = new Book("Corazón tinieblas", "J Conrad", 300, "Yes")
+book2 = new Book("Vagalume", "J Llamazares", 250, "No")
+book3 = new Book("Imperio", "J Gallego", 290, "Yes")
+myLibrary.push(book1);
+myLibrary.push(book2);
+myLibrary.push(book3);
 
 window.onload = printBookCards();
