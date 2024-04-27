@@ -1,8 +1,8 @@
 //Variables
 const myLibrary = [
-    {title: "Corazón tinieblas", author:"J Conrad", pages:300, read:true},
-    {title: "Lluvia azul", author:"J Llamazares", pages:250, read:true},
-    {title: "Imperio", author:"J Gallego", pages:290, read: true}
+    {title: "Corazón tinieblas", author:"J Conrad", pages:300, read:"Yes"},
+    {title: "Vagalume", author:"J Llamazares", pages:250, read:"Yes"},
+    {title: "Imperio", author:"J Gallego", pages:290, read: "No"}
 ];
 
 let author, title, pages, read;
@@ -12,7 +12,8 @@ const newBookModal  = document.getElementById("newBookModal");
 const newBookAuthor = document.getElementById("author");
 const newBookTitle = document.getElementById("title");
 const newBookPages = document.getElementById("pages");
-//const newBookRead = document.getElementById("read");
+const newBookRead = document.getElementById("read");
+const notRead = document.getElementById("readNo");
 const addBookBtn = document.getElementById("addBookBtn");
 const closeBtn = document.getElementById("closeBtn");
 
@@ -20,22 +21,14 @@ const closeBtn = document.getElementById("closeBtn");
 newBookBtn.addEventListener("click", ()=>{
     newBookModal.showModal();
 });
-newBookAuthor.addEventListener("change", ()=>{
-    author = newBookAuthor.value; 
-});
-newBookTitle.addEventListener("change", ()=>{
-    title = newBookTitle.value;
-});
-newBookPages.addEventListener("change", ()=>{
-    pages = newBookPages.value;
-});
-/* newBookRead.addEventListener("change", ()=>{
-    read = newBookRead.value;
-}); */
+
+newBookRead.addEventListener("click",()=>{
+    read = document.querySelector('input[name="read"]:checked').value;
+})
 
 addBookBtn.addEventListener("click", ()=>{
     if ( newBookTitle.checkValidity()& newBookAuthor.checkValidity() & newBookPages.checkValidity()){
-        addBookToLibrary(title, author, pages, read);
+        addBookToLibrary(newBookTitle.value, newBookAuthor.value, newBookPages.value, read);
         newBookModal.close();
     }
 }); 
@@ -45,7 +38,7 @@ closeBtn.addEventListener("click", ()=>{
 
 
 //functions
-function Book(title, author, pages, read) {
+function Book(title, author, pages, read="No") {
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -106,6 +99,7 @@ function resetVariables(){
     newBookTitle.value = "";
     newBookAuthor.value ="";
     newBookPages.value ="";
+    notRead.checked = true;
 }
 
 window.onload = printBookCards();

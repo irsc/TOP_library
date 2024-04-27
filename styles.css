@@ -50,7 +50,6 @@ footer{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 10px;
-    background-color: ;
 }
 
 /*Modal and form*/
@@ -66,6 +65,11 @@ footer{
 
 form legend, form p{
     grid-column: 1/3;
+}
+#read{
+    grid-column: 1/3;
+    justify-content: space-around;
+
 }
 
 form p {

@@ -29,13 +29,16 @@
                 
                 <label for="pages">Number of pages:</label>
                 <input id="pages" type="tel" pattern="^[1-9]\d{1,5}$" required>
-    
+                
                 <p>Have you red this book?</p>
-                <input type="radio" name="read" id="readYes"><label for="readYes">Yes</label>
-                <input type="radio" name="read" id="readNo" checked><label for="readNo">No</label>
+                <div id="read">
+                    <input type="radio" name="read" id="readYes" value="Yes"><label for="readYes">Yes</label>
+                    <input type="radio" name="read" id="readNo" value="No" checked><label for="readNo">No</label>
+                </div>
+
                 <button type="reset"  id="closeBtn">Cancel</button>
                 <button id="addBookBtn">Add new book</button>
-    
+            
             </form>
     
         </dialog>
